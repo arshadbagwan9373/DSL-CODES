@@ -1,0 +1,77 @@
+"""Write a Python program to store marks scored in subject "Fundamental of Data Structure" by N students in the class. Write functions to compute following:
+a) The average score of class
+b) Highest score and lowest score of class
+c) Count of students who were absent for the test
+d) Display mark with highest frequency"""
+
+##The average score of class
+def avg(marks):
+    sum=0
+    for i in marks:
+        if i!=-1:
+            sum+=i
+    a=sum/N
+    print("Average of class =",a)
+    
+##Highest score and lowest score of class
+def high_low(marks):
+    print("Highest score =",max(marks))
+    m=marks[0]
+    for i in marks:
+        if i!=-1:
+            if i<m:
+                m=i
+    print("Lowest score =",m)
+    
+##Count of students who were absent for the test
+def absent(marks):
+    c=0
+    for i in marks:
+        if i==-1:
+            c+=1
+    print("No. of Absent Students =",c)
+
+    
+##Display mark with highest frequency
+def high_freq(marks):
+    max=1
+    mark=0
+    for i in marks:
+        if marks.count(i)>max and i!=-1:
+            max=marks.count(i)
+            mark=i
+    print("Mark with Highest Frequency =",mark)
+    
+    
+##main
+marks=[]
+i=0
+N=int(input("Enter no. of students :"))
+for i in range(0,N):
+    marks.append(int(input("Enter marks:")))
+
+while(True):
+    print("\n**********Menu**********")
+    print("1.The average score of class")
+    print("2.Highest score and lowest score of class")
+    print("3.Count of students who were absent for the test")
+    print("4.Display mark with highest frequency")
+    print("5.Exit")
+    ch=int(input("Enter your choice :"))
+    
+    if ch==1:
+        avg(marks)
+    if ch==2:
+        high_low(marks)
+    if ch==3:
+        absent(marks)
+    if ch==4:
+        high_freq(marks)
+    if ch==5:
+        break
+
+
+
+    
+    
+    
