@@ -9,15 +9,7 @@ e) To count the occurrences of each word in a given string"""
 
 
 st=input("Enter line :")
-l1=[]
-c=""
-for i in st:
-    if i!=" ":
-        c+=i
-    elif i==" ":
-        l1.append(c)
-        c=""
-l1.append(c)
+l1=st.split()
 
 
 ##To display word with the longest length
@@ -90,3 +82,4 @@ while(True):
 
             
             
+
