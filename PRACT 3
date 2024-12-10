@@ -1,0 +1,92 @@
+"""Write a Python program to compute following operations on String:
+
+a) To display word with the longest length
+b) To determines the frequency of occurrence of particular character in the string
+c) To check whether given string is palindrome or not
+d) To display index of first appearance of the substring
+e) To count the occurrences of each word in a given string"""
+
+
+
+st=input("Enter line :")
+l1=[]
+c=""
+for i in st:
+    if i!=" ":
+        c+=i
+    elif i==" ":
+        l1.append(c)
+        c=""
+l1.append(c)
+
+
+##To display word with the longest length
+def longest(l1):
+    m=l1[0]
+    for i in l1:
+        if len(i)>len(m):
+            m=i
+    print("Longest word :",m)
+    
+##frequency of occurrence of particular character in the string
+def freq(ch):
+    c=0
+    for i in st:
+        if i==ch:
+            c+=1
+    print("Occurance of Character",ch,"=",c)
+    
+
+##To check whether given string is palindrome or not
+def is_palindrome(st):
+    if st==st[::-1]:
+        print("String is Palindrome")
+    else:
+        print("String is not Palindrome")
+        
+
+##To display index of first appearance of the substring
+def first_occurance(substr):
+    x=st.find(substr)
+    print(x)
+    
+##To count the occurrences of each word in a given string
+
+def occurance_each():
+    print("Word   ---   Occurances")
+    for i in l1:
+        print(i,"--",l1.count(i))
+
+while(True):
+    
+    print("\n******MENU*****")
+    print("1.To display word with the longest length")
+    print("2.frequency of occurrence of particular character in the string")
+    print("3.To check whether given string is palindrome or not")
+    print("4.To display index of first appearance of the substring")
+    print("5.To count the occurrences of each word in a given string")
+    print("6.Exit")
+    ch=int(input("Enter your choice :"))
+    if ch==1:
+        longest(l1)
+    if ch==2:
+        ch=input("Enter Character :")
+        freq(ch)
+    if ch==3:
+        is_palindrome(st)
+    if ch==4:
+        sub=input("Enter Substring :")
+        first_occurance(sub)
+    if ch==5:
+        occurance_each()
+    if ch==6:
+        break
+
+
+        
+    
+    
+
+
+            
+            
