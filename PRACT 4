@@ -1,0 +1,98 @@
+##linear search...
+
+n=int(input("Enter no of students attended program :"))
+att=[]
+for i in range(0,n):
+    att.append(int(input("Enter Roll_No:")))
+
+def linear_search(key):
+    for i in att:
+        if i==key:
+            print("Student Found")
+            break
+    else:
+        print("Student Not Found !!!!")
+        
+    
+ ##sentinal search  
+    
+def sentinal_search(key):
+    temp=att[-1]
+    att[-1]=key
+    i=0
+    while(att[i]!=key):
+        i+=1
+    
+    att[-1]=temp
+    if i<n-1 or key==temp:
+        print("Student Found")
+    else:
+        print("Student not found")
+
+##binary search        
+def binary_search(key):
+    start=0
+    end=n-1
+    mid=0
+    
+    while(start<=end):
+        mid=int((start+end)/2)
+        if att[mid]==key:
+            print("Student Found")
+            break
+        elif att[mid]>key:
+            end=mid-1
+        elif att[mid]<key:
+            start=mid+1
+    else:
+        print("Student Not Found")
+
+
+
+def fibonacci_search(arr, n, key):
+   offset = -1
+   Fm2 = 0
+   Fm1 = 1
+   Fm = Fm2 + Fm1
+   while (Fm < n):
+      Fm2 = Fm1
+      Fm1 = Fm
+      Fm = Fm2 + Fm1
+   while (Fm > 1):
+      i = min(offset + Fm2, n - 1)
+      if (arr[i] < key):
+         Fm = Fm1
+         Fm1 = Fm2
+         Fm2 = Fm - Fm1
+         offset = i
+      elif (arr[i] > key):
+         Fm = Fm2
+         Fm1 = Fm1 - Fm2
+         Fm2 = Fm - Fm1
+      else:
+         return i
+   if (Fm1 == 1 and arr[offset + 1] == key):
+      return offset + 1
+   return -1
+
+
+ele=int(input("Enter Roll_No to Search (fibonacci) :"))
+print(fibonacci_search(att,n,ele))
+
+ele=int(input("Enter Roll_No to Search (linear) :"))
+linear_search(ele)
+ele=int(input("Enter Roll_No to Search (sentinal) :"))
+sentinal_search(ele)
+ele=int(input("Enter Roll_No to Search (binary) :"))
+binary_search(ele)
+
+
+
+
+
+
+
+
+
+
+    
